@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import roomescape.domain.ReservationTime;
 
 import java.sql.PreparedStatement;
+import java.time.LocalTime;
 import java.util.List;
 
 @Repository
@@ -37,7 +38,13 @@ public class JdbcTemplateReservationTimeRepository implements ReservationTimeRep
 
     @Override
     public List<ReservationTime> findAll() {
-        return List.of();
+        String sql = "select * from reservation_time";
+        return jdbcTemplate.query(sql,
+                (rs, rowNum) -> new ReservationTime(
+                        rs.getLong("id"),
+                        LocalTime.parse(rs.getString("start_at"))
+                )
+        );
     }
 
     @Override

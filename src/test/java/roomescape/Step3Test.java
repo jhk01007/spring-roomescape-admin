@@ -9,6 +9,8 @@ import org.springframework.test.annotation.DirtiesContext;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.hamcrest.Matchers.is;
+
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
@@ -26,11 +28,11 @@ public class Step3Test {
                 .then().log().all()
                 .statusCode(200);
 
-//        RestAssured.given().log().all()
-//                .when().get("/times")
-//                .then().log().all()
-//                .statusCode(200)
-//                .body("size()", is(1));
+        RestAssured.given().log().all()
+                .when().get("/times")
+                .then().log().all()
+                .statusCode(200)
+                .body("size()", is(1));
 //
 //        RestAssured.given().log().all()
 //                .when().delete("/times/1")
