@@ -49,6 +49,7 @@ public class JdbcTemplateReservationTimeRepository implements ReservationTimeRep
 
     @Override
     public void delete(Long id) {
-
+        String sql = "delete from reservation_time where id = ?";
+        jdbcTemplate.update(sql, id);
     }
 }
