@@ -6,6 +6,7 @@ import roomescape.controller.ReservationController;
 import roomescape.controller.ReservationTimeController;
 import roomescape.controller.dto.request.ReservationRequest;
 import roomescape.controller.dto.request.ReservationTimeRequest;
+import roomescape.controller.dto.response.ReservationListResponse;
 import roomescape.controller.dto.response.ReservationResponse;
 import roomescape.controller.dto.response.ReservationTimeResponse;
 import roomescape.domain.Reservation;
@@ -76,7 +77,7 @@ public class ConsoleRunner {
     }
 
     private void getReservationList() {
-        ResponseEntity<List<ReservationResponse>> response =
+        ResponseEntity<ReservationListResponse> response =
                 controllerExceptionHandler(reservationController::getReservations);
 
         if(response.getStatusCode().is2xxSuccessful()) {

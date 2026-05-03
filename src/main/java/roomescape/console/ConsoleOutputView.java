@@ -1,5 +1,6 @@
 package roomescape.console;
 
+import roomescape.controller.dto.response.ReservationListResponse;
 import roomescape.controller.dto.response.ReservationResponse;
 import roomescape.controller.dto.response.ReservationTimeResponse;
 import roomescape.domain.Reservation;
@@ -21,7 +22,7 @@ public class ConsoleOutputView {
         System.out.println(reservation);
     }
 
-    public static void printReservationList(List<ReservationResponse> reservations) {
+    public static void printReservationList(ReservationListResponse reservations) {
         System.out.println(reservations);
     }
 
