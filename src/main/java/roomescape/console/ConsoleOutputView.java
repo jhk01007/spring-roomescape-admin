@@ -13,7 +13,7 @@ public class ConsoleOutputView {
         System.out.println(reservationTime);
     }
 
-    public static void printTimeList(List<ReservationTime> reservationTimes) {
+    public static void printTimeList(List<ReservationTimeResponse> reservationTimes) {
         System.out.println(reservationTimes);
     }
 
@@ -21,7 +21,7 @@ public class ConsoleOutputView {
         System.out.println(reservation);
     }
 
-    public static void printReservationList(List<Reservation> reservations) {
+    public static void printReservationList(List<ReservationResponse> reservations) {
         System.out.println(reservations);
     }
 

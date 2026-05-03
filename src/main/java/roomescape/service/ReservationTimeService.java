@@ -22,8 +22,10 @@ public class ReservationTimeService {
         return ReservationTimeResponse.from(saved);
     }
 
-    public List<ReservationTime> getReservationTimes() {
-        return repository.findAll();
+    public List<ReservationTimeResponse> getReservationTimes() {
+        return repository.findAll().stream()
+                .map(ReservationTimeResponse::from)
+                .toList();
     }
 
     public void deleteReservationTime(Long id) {

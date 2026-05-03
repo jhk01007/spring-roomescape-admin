@@ -52,7 +52,7 @@ public class ConsoleRunner {
     }
 
     private void getTimeList() {
-        ResponseEntity<List<ReservationTime>> response =
+        ResponseEntity<List<ReservationTimeResponse>> response =
                 controllerExceptionHandler(reservationTimeController::getReservationTimes);
 
         if(response.getStatusCode().is2xxSuccessful()) {
@@ -76,7 +76,7 @@ public class ConsoleRunner {
     }
 
     private void getReservationList() {
-        ResponseEntity<List<Reservation>> response =
+        ResponseEntity<List<ReservationResponse>> response =
                 controllerExceptionHandler(reservationController::getReservations);
 
         if(response.getStatusCode().is2xxSuccessful()) {

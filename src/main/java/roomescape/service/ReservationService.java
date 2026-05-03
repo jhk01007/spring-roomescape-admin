@@ -22,8 +22,10 @@ public class ReservationService {
         this.timeRepository = timeRepository;
     }
 
-    public List<Reservation> getReservationList() {
-        return repository.findAll();
+    public List<ReservationResponse> getReservationList() {
+        return repository.findAll().stream()
+                .map(ReservationResponse::from)
+                .toList();
     }
 
     public ReservationResponse addReservation(ReservationRequest request) {
