@@ -3,12 +3,10 @@ package roomescape.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import roomescape.controller.dto.request.ReservationTimeRequest;
-import roomescape.controller.dto.response.ReservationResponse;
+import roomescape.controller.dto.response.ReservationTimeListResponse;
 import roomescape.controller.dto.response.ReservationTimeResponse;
-import roomescape.domain.ReservationTime;
 import roomescape.service.ReservationTimeService;
 
-import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -28,8 +26,8 @@ public class ReservationTimeController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ReservationTimeResponse>> getReservationTimes() {
-        return ResponseEntity.ok(reservationTimeService.getReservationTimes());
+    public ResponseEntity<ReservationTimeListResponse> getReservationTimes() {
+        return ResponseEntity.ok(new ReservationTimeListResponse(reservationTimeService.getReservationTimes()));
     }
 
     @DeleteMapping("/{id}")
