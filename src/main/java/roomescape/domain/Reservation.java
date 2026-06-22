@@ -1,27 +1,19 @@
 package roomescape.domain;
 
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class Reservation {
-    private Long id;
-    private String name;
-    private LocalDate date;
-    private ReservationTime time;
+    private final Long id;
+    private final String name;
+    private final LocalDate date;
+    private final ReservationTime time;
 
-    private Reservation() { // Jackson이 Json -> Reservation으로 변환하는 과정에서 필요.
-    }
-
-    @JsonCreator
     public Reservation(
-            @JsonProperty(value = "id") Long id,
-            @JsonProperty(value = "name") String name,
-            @JsonProperty(value = "date") LocalDate date,
-            @JsonProperty(value = "time") ReservationTime time
+            Long id,
+            String name,
+            LocalDate date,
+            ReservationTime time
     ) {
         this.id = id;
         this.name = name;
